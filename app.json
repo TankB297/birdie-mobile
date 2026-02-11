@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "birdie",
+    "name": "Smasholic",
     "slug": "birdie",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,20 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tankb297.birdie",
+      "googleServicesFile": "./firebase/ios/GoogleService-Info.plist",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": [
+              "birdie",
+              "com.tankb297.birdie",
+              "com.googleusercontent.apps.REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID-2bq5f9amoai4cbne4b227th85mfgdji6"
+            ]
+          }
+        ]
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +32,9 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.tankb297.birdie",
+      "googleServicesFile": "./firebase/android/google-services.json"
     },
     "web": {
       "output": "static",
@@ -27,6 +42,12 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "com.googleusercontent.apps.REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID-2bq5f9amoai4cbne4b227th85mfgdji6"
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -43,6 +64,21 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "firebase": {
+        "apiKey": "REMOVED_EXPO_PUBLIC_FIREBASE_API_KEY",
+        "authDomain": "REMOVED_EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN",
+        "projectId": "REMOVED_EXPO_PUBLIC_FIREBASE_PROJECT_ID",
+        "storageBucket": "REMOVED_EXPO_PUBLIC_FIREBASE_PROJECT_ID.firebasestorage.app",
+        "messagingSenderId": "REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
+        "appId": "1:REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID:android:cc16c5eae4dfbf034794e6"
+      },
+      "googleSignIn": {
+        "webClientId": "REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID-r0teit9fcei88i44p0mfs3e4kj5k94qv.apps.googleusercontent.com",
+        "androidClientId": "REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID-4k64o1915gfp9oeeqiat5alek3numuuf.apps.googleusercontent.com",
+        "iosClientId": "REMOVED_EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID-2bq5f9amoai4cbne4b227th85mfgdji6.apps.googleusercontent.com"
+      }
     }
   }
 }
