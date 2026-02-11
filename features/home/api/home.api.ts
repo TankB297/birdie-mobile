@@ -1,4 +1,7 @@
 import type { NearbyGame } from '@/features/home/types/home.types';
+import { HOME_PRIMARY_COVER_IMAGE_URL } from '@/features/home/constants/home.constants';
+
+const defaultCoverImageUrl = HOME_PRIMARY_COVER_IMAGE_URL;
 
 const nearbyGamesMock: NearbyGame[] = [
   {
@@ -6,7 +9,8 @@ const nearbyGamesMock: NearbyGame[] = [
     day: 'today',
     startTime: '19:30',
     endTime: '21:30',
-    courtName: 'San Phu My',
+    courtName: 'Sân Phú Mỹ',
+    courtAddress: 'Phú Mỹ Hưng, Quận 7, TP.HCM',
     distanceKm: 2.1,
     clubName: 'CLB Nice Smash',
     totalSlots: 6,
@@ -19,13 +23,15 @@ const nearbyGamesMock: NearbyGame[] = [
     rating: 4.6,
     reviewQuoteKey: 'homeReview.niceClub',
     genderFlexible: true,
+    coverImageUrl: defaultCoverImageUrl,
   },
   {
     id: 'game_2',
     day: 'today',
     startTime: '20:00',
     endTime: '22:00',
-    courtName: 'San Tan Binh',
+    courtName: 'Sân Tân Bình',
+    courtAddress: 'Đường Bạch Đằng, Tân Bình, TP.HCM',
     distanceKm: 4.5,
     clubName: 'Smasholic Crew',
     totalSlots: 6,
@@ -38,13 +44,15 @@ const nearbyGamesMock: NearbyGame[] = [
     rating: 4.8,
     reviewQuoteKey: 'homeReview.strongTempo',
     genderFlexible: true,
+    coverImageUrl: defaultCoverImageUrl,
   },
   {
     id: 'game_3',
     day: 'tomorrow',
     startTime: '18:30',
     endTime: '20:30',
-    courtName: 'San Van Kiep',
+    courtName: 'Sân Vạn Kiếp',
+    courtAddress: 'Vạn Kiếp, Bình Thạnh, TP.HCM',
     distanceKm: 2.8,
     clubName: 'River Smash',
     totalSlots: 8,
@@ -57,13 +65,15 @@ const nearbyGamesMock: NearbyGame[] = [
     rating: 4.4,
     reviewQuoteKey: 'homeReview.friendlyPlayers',
     genderFlexible: true,
+    coverImageUrl: defaultCoverImageUrl,
   },
   {
     id: 'game_4',
     day: 'weekend',
     startTime: '07:00',
     endTime: '09:00',
-    courtName: 'San Gia Dinh',
+    courtName: 'Sân Gia Định',
+    courtAddress: 'Công viên Gia Định, Gò Vấp, TP.HCM',
     distanceKm: 2.4,
     clubName: 'Morning Birdie',
     totalSlots: 6,
@@ -76,6 +86,7 @@ const nearbyGamesMock: NearbyGame[] = [
     rating: 4.7,
     reviewQuoteKey: 'homeReview.fastPace',
     genderFlexible: false,
+    coverImageUrl: defaultCoverImageUrl,
   },
 ];
 

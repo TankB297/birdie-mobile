@@ -28,8 +28,9 @@ export function HomeHeader({ locationLabel, prompt }: HomeHeaderProps) {
 
 const styles = StyleSheet.create({
   card: {
-    gap: appTheme.spacing.md,
-    paddingTop: appTheme.spacing.xl,
+    gap: appTheme.spacing.sm,
+    paddingTop: appTheme.spacing.md,
+    paddingBottom: appTheme.spacing.md,
   },
   locationRow: {
     flexDirection: 'row',
@@ -43,14 +44,14 @@ const styles = StyleSheet.create({
   },
   locationLabel: {
     color: appTheme.colors.accentStrong,
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: '700',
     fontFamily: Fonts.rounded,
   },
   prompt: {
     color: appTheme.colors.textPrimary,
-    fontSize: 34,
-    lineHeight: 42,
+    fontSize: 24,
+    lineHeight: 31,
     fontWeight: '700',
     fontFamily: Fonts.rounded,
     letterSpacing: 0.2,

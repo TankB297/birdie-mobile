@@ -10,6 +10,7 @@ import type { NearbyGame } from '@/features/home/types/home.types';
 
 type GameCardProps = {
   game: NearbyGame;
+  onPressJoin: (game: NearbyGame) => void;
 };
 
 function formatDistance(distanceKm: number): string {
@@ -31,7 +32,7 @@ function formatPriceLine(game: NearbyGame, t: (key: string, params?: Record<stri
   });
 }
 
-export function GameCard({ game }: GameCardProps) {
+export function GameCard({ game, onPressJoin }: GameCardProps) {
   const { t } = useI18n();
   const availableSlots = calculateAvailableSlots(game);
   const openForJoin = isGameOpen(game);
@@ -86,6 +87,7 @@ export function GameCard({ game }: GameCardProps) {
       <Button
         label={openForJoin ? t('home.actions.join') : t('home.actions.full')}
         variant={openForJoin ? 'primary' : 'outline'}
+        onPress={openForJoin ? () => onPressJoin(game) : undefined}
       />
     </SectionCard>
   );

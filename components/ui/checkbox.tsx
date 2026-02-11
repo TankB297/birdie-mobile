@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   boxChecked: {
-    backgroundColor: appTheme.colors.accent,
-    borderColor: appTheme.colors.accent,
+    backgroundColor: appTheme.colors.secondaryAccent,
+    borderColor: appTheme.colors.secondaryAccent,
   },
   label: {
     color: appTheme.colors.textSecondary,

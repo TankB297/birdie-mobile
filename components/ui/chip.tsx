@@ -25,11 +25,17 @@ export function Chip({
       style={({ pressed }) => [
         styles.base,
         variant === 'filled' ? styles.filled : styles.outlined,
-        active ? styles.active : undefined,
+        active ? (variant === 'filled' ? styles.activeFilled : styles.activeOutlined) : undefined,
         pressed ? styles.pressed : undefined,
         style,
       ]}>
-      <Text style={[styles.label, active ? styles.labelActive : undefined]}>{label}</Text>
+      <Text
+        style={[
+          styles.label,
+          active ? (variant === 'filled' ? styles.labelActiveFilled : styles.labelActiveOutlined) : undefined,
+        ]}>
+        {label}
+      </Text>
     </Pressable>
   );
 }
@@ -46,12 +52,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   filled: {
-    borderColor: appTheme.colors.accentSoft,
-    backgroundColor: appTheme.colors.surfaceMuted,
+    borderColor: appTheme.colors.secondaryAccentSoft,
+    backgroundColor: appTheme.colors.surfaceTeal,
   },
-  active: {
-    borderColor: appTheme.colors.accent,
-    backgroundColor: '#FFE7D3',
+  activeOutlined: {
+    borderColor: appTheme.colors.secondaryAccent,
+    backgroundColor: '#DDF2F2',
+  },
+  activeFilled: {
+    borderColor: appTheme.colors.secondaryAccent,
+    backgroundColor: '#DDF2F2',
   },
   label: {
     color: appTheme.colors.textSecondary,
@@ -59,8 +69,11 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.2,
   },
-  labelActive: {
-    color: appTheme.colors.accentStrong,
+  labelActiveOutlined: {
+    color: appTheme.colors.secondaryAccentStrong,
+  },
+  labelActiveFilled: {
+    color: appTheme.colors.secondaryAccentStrong,
   },
   pressed: {
     opacity: 0.8,

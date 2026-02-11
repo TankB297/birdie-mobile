@@ -10,9 +10,10 @@ type NearbyGamesSectionProps = {
   title: string;
   games: NearbyGame[];
   viewMoreLabel: string;
+  onPressJoinGame: (game: NearbyGame) => void;
 };
 
-export function NearbyGamesSection({ title, games, viewMoreLabel }: NearbyGamesSectionProps) {
+export function NearbyGamesSection({ title, games, viewMoreLabel, onPressJoinGame }: NearbyGamesSectionProps) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -21,7 +22,7 @@ export function NearbyGamesSection({ title, games, viewMoreLabel }: NearbyGamesS
       </View>
 
       {games.map((game) => (
-        <GameCard key={game.id} game={game} />
+        <GameCard key={game.id} game={game} onPressJoin={onPressJoinGame} />
       ))}
 
       <Button
@@ -36,7 +37,7 @@ export function NearbyGamesSection({ title, games, viewMoreLabel }: NearbyGamesS
 
 const styles = StyleSheet.create({
   container: {
-    gap: appTheme.spacing.lg,
+    gap: appTheme.spacing.md,
   },
   header: {
     flexDirection: 'row',

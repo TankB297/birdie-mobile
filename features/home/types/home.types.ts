@@ -19,6 +19,7 @@ export type NearbyGame = {
   courtName: string;
   distanceKm: number;
   clubName: string;
+  courtAddress: string;
   totalSlots: number;
   bookedSlots: number;
   malePriceLabel: string;
@@ -29,4 +30,5 @@ export type NearbyGame = {
   rating: number;
   reviewQuoteKey: string;
   genderFlexible: boolean;
+  coverImageUrl: string;
 };

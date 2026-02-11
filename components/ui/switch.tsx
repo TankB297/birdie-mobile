@@ -42,7 +42,7 @@ export function Switch({ value, onValueChange, disabled = false, size = 'sm' }: 
           width: config.width,
           height: config.height,
           borderRadius: config.height,
-          backgroundColor: value ? appTheme.colors.accent : '#DCC9BD',
+          backgroundColor: value ? appTheme.colors.secondaryAccent : '#DCC9BD',
           opacity: disabled ? 0.5 : 1,
         },
       ]}>

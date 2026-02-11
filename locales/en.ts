@@ -34,11 +34,55 @@ export const en = {
       title: 'No suitable game?',
       subtitle: 'Host a social match with your style',
     },
+    modal: {
+      title: 'Match details',
+      timeLabel: 'Time',
+      locationLabel: 'Location',
+      slotsLabel: 'Slots',
+      feeLabel: 'Fee',
+      ratingLabel: 'Rating',
+      slotsOpenValue: '{{available}}/{{total}} slots open',
+      slotsClosedValue: 'Fully booked ({{total}}/{{total}})',
+      closeAction: 'Close',
+      levelBeginner: 'Beginner',
+      levelIntermediatePlus: 'Intermediate+',
+      levelAdvanced: 'Advanced',
+      formatMixed: 'Mixed',
+      formatMenOnly: 'Men only',
+      formatWomenOnly: 'Women only',
+    },
   },
   homeReview: {
     niceClub: 'Great and welcoming club',
     strongTempo: 'Fast pace and fair rotations',
     friendlyPlayers: 'Friendly players for casual games',
     fastPace: 'Strong tempo for competitive rounds',
+  },
+  tabs: {
+    labels: {
+      home: 'Home',
+      clubs: 'Your Clubs',
+      create: 'Create',
+      profile: 'Profile',
+      settings: 'Settings',
+    },
+    screens: {
+      clubs: {
+        title: 'Your Clubs',
+        subtitle: 'Manage your joined clubs and upcoming sessions.',
+      },
+      create: {
+        title: 'Create Match',
+        subtitle: 'Post a new game with schedule, level, and slot details.',
+      },
+      profile: {
+        title: 'Profile',
+        subtitle: 'Update your level, preferences, and personal information.',
+      },
+      settings: {
+        title: 'Settings',
+        subtitle: 'Configure notifications, language, and account settings.',
+      },
+    },
   },
 } as const;

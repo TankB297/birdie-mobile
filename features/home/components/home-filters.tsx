@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { Checkbox } from '@/components/ui/checkbox';
 import { Chip } from '@/components/ui/chip';
@@ -44,7 +44,11 @@ export function HomeFilters({
     <SectionCard style={styles.card}>
       <Text style={styles.sectionTitle}>{text.title}</Text>
 
-      <View style={styles.row}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.chipRowContent}
+        style={styles.chipRowScroll}>
         <Chip label={text.today} active={filters.day === 'today'} onPress={() => onDayChange('today')} />
         <Chip
           label={text.tomorrow}
@@ -56,9 +60,13 @@ export function HomeFilters({
           active={filters.day === 'weekend'}
           onPress={() => onDayChange('weekend')}
         />
-      </View>
+      </ScrollView>
 
-      <View style={styles.row}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.chipRowContent}
+        style={styles.chipRowScroll}>
         <Chip label={text.under3km} active={filters.under3km} variant="filled" onPress={onToggleUnder3km} />
         <Chip
           label={text.intermediatePlus}
@@ -67,7 +75,7 @@ export function HomeFilters({
           onPress={onToggleIntermediatePlus}
         />
         <Chip label={text.mixed} active={filters.mixedOnly} variant="filled" onPress={onToggleMixedOnly} />
-      </View>
+      </ScrollView>
 
       <View style={styles.preferencesRow}>
         <View style={styles.switchItem}>
@@ -83,19 +91,25 @@ export function HomeFilters({
 
 const styles = StyleSheet.create({
   card: {
-    gap: appTheme.spacing.md,
+    gap: appTheme.spacing.sm,
+    paddingTop: appTheme.spacing.md,
+    paddingBottom: appTheme.spacing.md,
   },
   sectionTitle: {
-    color: appTheme.colors.textSecondary,
-    fontSize: 13,
+    color: appTheme.colors.secondaryAccentStrong,
+    fontSize: 12,
     fontWeight: '700',
-    letterSpacing: 0.4,
+    letterSpacing: 0.3,
     textTransform: 'uppercase',
   },
-  row: {
+  chipRowScroll: {
+    marginHorizontal: -appTheme.spacing.xs,
+  },
+  chipRowContent: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
+    alignItems: 'center',
     gap: appTheme.spacing.sm,
+    paddingHorizontal: appTheme.spacing.xs,
   },
   preferencesRow: {
     flexDirection: 'row',
@@ -104,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     rowGap: appTheme.spacing.sm,
     columnGap: appTheme.spacing.md,
-    marginTop: appTheme.spacing.xs,
+    marginTop: 2,
   },
   switchItem: {
     flexDirection: 'row',
@@ -113,7 +127,7 @@ const styles = StyleSheet.create({
   },
   preferenceLabel: {
     color: appTheme.colors.textSecondary,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '600',
   },
 });
