@@ -1,0 +1,88 @@
+import type { NearbyGame } from '@/features/home/types/home.types';
+
+const nearbyGamesMock: NearbyGame[] = [
+  {
+    id: 'game_1',
+    day: 'today',
+    startTime: '19:30',
+    endTime: '21:30',
+    courtName: 'San Phu My',
+    distanceKm: 2.1,
+    clubName: 'CLB Nice Smash',
+    totalSlots: 6,
+    bookedSlots: 3,
+    malePriceLabel: '70k',
+    femalePriceLabel: '50k',
+    splitEvenly: false,
+    level: 'intermediatePlus',
+    format: 'mixed',
+    rating: 4.6,
+    reviewQuoteKey: 'homeReview.niceClub',
+    genderFlexible: true,
+  },
+  {
+    id: 'game_2',
+    day: 'today',
+    startTime: '20:00',
+    endTime: '22:00',
+    courtName: 'San Tan Binh',
+    distanceKm: 4.5,
+    clubName: 'Smasholic Crew',
+    totalSlots: 6,
+    bookedSlots: 6,
+    malePriceLabel: '0k',
+    femalePriceLabel: '0k',
+    splitEvenly: true,
+    level: 'intermediatePlus',
+    format: 'mixed',
+    rating: 4.8,
+    reviewQuoteKey: 'homeReview.strongTempo',
+    genderFlexible: true,
+  },
+  {
+    id: 'game_3',
+    day: 'tomorrow',
+    startTime: '18:30',
+    endTime: '20:30',
+    courtName: 'San Van Kiep',
+    distanceKm: 2.8,
+    clubName: 'River Smash',
+    totalSlots: 8,
+    bookedSlots: 4,
+    malePriceLabel: '65k',
+    femalePriceLabel: '50k',
+    splitEvenly: false,
+    level: 'beginner',
+    format: 'mixed',
+    rating: 4.4,
+    reviewQuoteKey: 'homeReview.friendlyPlayers',
+    genderFlexible: true,
+  },
+  {
+    id: 'game_4',
+    day: 'weekend',
+    startTime: '07:00',
+    endTime: '09:00',
+    courtName: 'San Gia Dinh',
+    distanceKm: 2.4,
+    clubName: 'Morning Birdie',
+    totalSlots: 6,
+    bookedSlots: 2,
+    malePriceLabel: '80k',
+    femalePriceLabel: '60k',
+    splitEvenly: false,
+    level: 'advanced',
+    format: 'menOnly',
+    rating: 4.7,
+    reviewQuoteKey: 'homeReview.fastPace',
+    genderFlexible: false,
+  },
+];
+
+export async function fetchNearbyGamesApi(): Promise<NearbyGame[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(nearbyGamesMock);
+    }, 200);
+  });
+}
