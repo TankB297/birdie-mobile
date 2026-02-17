@@ -3,10 +3,10 @@ import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Loader } from '@/components/ui/loader';
+import { AppScreenHeader } from '@/components/shared/app-screen-header';
 import { appTheme } from '@/constants/app-theme';
 import { GameDetailModal } from '@/features/home/components/game-detail-modal';
 import { HomeFilters } from '@/features/home/components/home-filters';
-import { HomeHeader } from '@/features/home/components/home-header';
 import { NearbyGamesSection } from '@/features/home/components/nearby-games-section';
 import { useHomeFeed } from '@/features/home/services/use-home-feed';
 import type { NearbyGame } from '@/features/home/types/home.types';
@@ -35,7 +35,7 @@ export default function HomeTabScreen() {
       <View style={styles.backgroundBlobTwo} />
 
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
-        <HomeHeader locationLabel={t('home.locationLabel')} prompt={t('home.prompt')} />
+        <AppScreenHeader locationLabel={t('home.locationLabel')} showNotification />
 
         <HomeFilters
           filters={filters}
@@ -48,14 +48,12 @@ export default function HomeTabScreen() {
             intermediatePlus: t('home.filters.intermediatePlus'),
             mixed: t('home.filters.mixed'),
             availableOnly: t('home.filters.availableOnly'),
-            genderFlexible: t('home.filters.genderFlexible'),
           }}
           onDayChange={actions.onDayChange}
           onToggleUnder3km={actions.onToggleUnder3km}
           onToggleIntermediatePlus={actions.onToggleIntermediatePlus}
           onToggleMixedOnly={actions.onToggleMixedOnly}
           onToggleAvailableOnly={actions.onToggleAvailableOnly}
-          onToggleGenderFlexible={actions.onToggleGenderFlexible}
         />
 
         {loading ? (

@@ -36,52 +36,56 @@ export function GameCard({ game, onPressJoin }: GameCardProps) {
   const { t } = useI18n();
   const availableSlots = calculateAvailableSlots(game);
   const openForJoin = isGameOpen(game);
+  const slotsUrgent = openForJoin && availableSlots <= 2;
 
   const slotsLabel = openForJoin
-    ? t('home.slotsRemaining', { available: availableSlots, total: game.totalSlots })
-    : t('home.slotsFull', { booked: game.bookedSlots, total: game.totalSlots });
+    ? t('home.card.slotsOpenBadge', { available: availableSlots, total: game.totalSlots })
+    : t('home.card.slotsFullBadge');
 
-  const ratingLine = t('home.ratingLine', {
-    rating: formatRating(game.rating),
-    quote: t(game.reviewQuoteKey),
-  });
+  const ratingLine = `${formatRating(game.rating)} • ${t(game.reviewQuoteKey)}`;
 
   return (
     <SectionCard style={styles.card}>
-      <View style={styles.line}>
-        <MaterialCommunityIcons name="clock-outline" size={20} color={appTheme.colors.warning} />
-        <Text style={styles.primaryText}>{`${game.startTime} - ${game.endTime}`}</Text>
+      <View style={styles.headerRow}>
+        <View style={styles.line}>
+          <MaterialCommunityIcons name="clock-outline" size={18} color={appTheme.colors.textSecondary} />
+          <Text style={styles.timeText}>{`${game.startTime} - ${game.endTime}`}</Text>
+        </View>
+
+        <View
+          style={[
+            styles.slotBadge,
+            !openForJoin ? styles.slotBadgeFull : slotsUrgent ? styles.slotBadgeUrgent : styles.slotBadgeNormal,
+          ]}>
+          <Text
+            style={[
+              styles.slotBadgeLabel,
+              !openForJoin ? styles.slotBadgeLabelFull : slotsUrgent ? styles.slotBadgeLabelUrgent : undefined,
+            ]}>
+            {slotsLabel}
+          </Text>
+        </View>
       </View>
 
       <View style={styles.line}>
-        <MaterialCommunityIcons name="map-marker" size={20} color={appTheme.colors.accent} />
-        <Text style={styles.secondaryText}>{`${game.courtName} (${formatDistance(game.distanceKm)})`}</Text>
+        <MaterialCommunityIcons name="map-marker" size={17} color={appTheme.colors.textMuted} />
+        <Text style={styles.bodyText}>{`${game.courtName} (${formatDistance(game.distanceKm)})`}</Text>
       </View>
 
       <View style={styles.line}>
-        <MaterialCommunityIcons name="badminton" size={20} color={appTheme.colors.accentStrong} />
-        <Text style={styles.secondaryText}>{game.clubName}</Text>
+        <MaterialCommunityIcons name="badminton" size={17} color={appTheme.colors.textMuted} />
+        <Text style={styles.bodyText}>{game.clubName}</Text>
       </View>
 
-      <View style={styles.divider} />
-
-      <View style={styles.line}>
-        <MaterialCommunityIcons
-          name="account-group-outline"
-          size={20}
-          color={openForJoin ? appTheme.colors.accent : appTheme.colors.danger}
-        />
-        <Text style={[styles.primaryText, !openForJoin ? styles.dangerText : undefined]}>{slotsLabel}</Text>
-      </View>
-
-      <View style={styles.line}>
-        <MaterialCommunityIcons name="cash-multiple" size={20} color={appTheme.colors.warning} />
-        <Text style={styles.secondaryText}>{formatPriceLine(game, t)}</Text>
-      </View>
-
-      <View style={styles.line}>
-        <MaterialCommunityIcons name="star-outline" size={20} color={appTheme.colors.warning} />
-        <Text style={styles.secondaryText}>{ratingLine}</Text>
+      <View style={styles.metaRow}>
+        <View style={styles.metaItem}>
+          <MaterialCommunityIcons name="cash-multiple" size={15} color={appTheme.colors.textMuted} />
+          <Text style={styles.metaText}>{formatPriceLine(game, t)}</Text>
+        </View>
+        <View style={styles.metaItem}>
+          <MaterialCommunityIcons name="star-outline" size={15} color={appTheme.colors.textMuted} />
+          <Text style={styles.metaText}>{ratingLine}</Text>
+        </View>
       </View>
 
       <Button
@@ -95,32 +99,74 @@ export function GameCard({ game, onPressJoin }: GameCardProps) {
 
 const styles = StyleSheet.create({
   card: {
-    gap: appTheme.spacing.sm,
+    gap: appTheme.spacing.md,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: appTheme.spacing.md,
   },
   line: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: appTheme.spacing.sm,
   },
-  primaryText: {
+  timeText: {
     color: appTheme.colors.textPrimary,
-    fontSize: 17,
-    fontWeight: '700',
-    lineHeight: 24,
+    fontSize: 22,
+    fontWeight: '800',
+    lineHeight: 30,
+    letterSpacing: 0.2,
   },
-  secondaryText: {
+  slotBadge: {
+    borderRadius: appTheme.radius.pill,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
+  },
+  slotBadgeNormal: {
+    backgroundColor: appTheme.colors.surfaceMuted,
+  },
+  slotBadgeUrgent: {
+    backgroundColor: '#FFE7D3',
+  },
+  slotBadgeFull: {
+    backgroundColor: '#FDE3E1',
+  },
+  slotBadgeLabel: {
+    fontSize: 12,
+    fontWeight: '700',
     color: appTheme.colors.textSecondary,
-    fontSize: 16,
+  },
+  slotBadgeLabelUrgent: {
+    color: appTheme.colors.accentStrong,
+  },
+  slotBadgeLabelFull: {
+    color: appTheme.colors.danger,
+  },
+  bodyText: {
+    color: appTheme.colors.textSecondary,
+    fontSize: 15,
     fontWeight: '600',
-    lineHeight: 23,
+    lineHeight: 21,
     flex: 1,
   },
-  divider: {
-    marginVertical: appTheme.spacing.xs,
-    height: 1,
-    backgroundColor: appTheme.colors.border,
+  metaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: appTheme.spacing.sm,
   },
-  dangerText: {
-    color: appTheme.colors.danger,
+  metaItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    flex: 1,
+  },
+  metaText: {
+    color: appTheme.colors.textMuted,
+    fontSize: 13,
+    fontWeight: '500',
+    lineHeight: 18,
   },
 });

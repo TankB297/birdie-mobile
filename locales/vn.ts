@@ -15,7 +15,7 @@ export const vn = {
       under3km: '<3km',
       intermediatePlus: 'TB+',
       mixed: 'Mixed',
-      availableOnly: 'Chỉ hiện kèo còn slot',
+      availableOnly: 'Còn slot',
       genderFlexible: 'Linh hoạt giới tính',
     },
     nearbySectionTitle: 'Kèo đang tuyển gần bạn',
@@ -24,6 +24,10 @@ export const vn = {
     priceByGender: 'Nam {{male}} | Nữ {{female}}',
     priceSplitEvenly: 'Chia đều',
     ratingLine: '{{rating}} • "{{quote}}"',
+    card: {
+      slotsOpenBadge: 'Còn {{available}}/{{total}}',
+      slotsFullBadge: 'Hết slot',
+    },
     actions: {
       join: 'Đăng ký đánh',
       full: 'Hết slot',
@@ -61,27 +65,22 @@ export const vn = {
   tabs: {
     labels: {
       home: 'Home',
-      clubs: 'Your Clubs',
-      create: 'Tạo kèo',
+      clubs: 'Clubs',
+      community: 'Community',
       profile: 'Profile',
-      settings: 'Settings',
     },
     screens: {
       clubs: {
-        title: 'Your Clubs',
-        subtitle: 'Quản lý CLB bạn tham gia và các lịch chơi sắp tới.',
+        title: 'Clubs',
+        subtitle: 'Quản lý CLB bạn làm chủ hoặc đang là thành viên.',
       },
-      create: {
-        title: 'Tạo kèo giao lưu',
-        subtitle: 'Đăng kèo mới với khung giờ, trình độ và số slot mong muốn.',
+      community: {
+        title: 'Community',
+        subtitle: 'Nơi cập nhật bài viết, blog và giải đấu trong tương lai.',
       },
       profile: {
         title: 'Profile',
         subtitle: 'Cập nhật trình độ, sở thích đánh và thông tin cá nhân.',
-      },
-      settings: {
-        title: 'Settings',
-        subtitle: 'Tùy chỉnh thông báo, ngôn ngữ và các cài đặt tài khoản.',
       },
     },
   },

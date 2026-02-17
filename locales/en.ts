@@ -15,7 +15,7 @@ export const en = {
       under3km: '<3km',
       intermediatePlus: 'Intermediate+',
       mixed: 'Mixed',
-      availableOnly: 'Only show open slots',
+      availableOnly: 'Open slots',
       genderFlexible: 'Gender flexible',
     },
     nearbySectionTitle: 'Games recruiting near you',
@@ -24,6 +24,10 @@ export const en = {
     priceByGender: 'Men {{male}} | Women {{female}}',
     priceSplitEvenly: 'Split evenly',
     ratingLine: '{{rating}} • "{{quote}}"',
+    card: {
+      slotsOpenBadge: '{{available}}/{{total}} open',
+      slotsFullBadge: 'Full',
+    },
     actions: {
       join: 'Join Match',
       full: 'No Slots Left',
@@ -61,27 +65,22 @@ export const en = {
   tabs: {
     labels: {
       home: 'Home',
-      clubs: 'Your Clubs',
-      create: 'Create',
+      clubs: 'Clubs',
+      community: 'Community',
       profile: 'Profile',
-      settings: 'Settings',
     },
     screens: {
       clubs: {
-        title: 'Your Clubs',
-        subtitle: 'Manage your joined clubs and upcoming sessions.',
+        title: 'Clubs',
+        subtitle: 'Manage clubs you own or joined as a member.',
       },
-      create: {
-        title: 'Create Match',
-        subtitle: 'Post a new game with schedule, level, and slot details.',
+      community: {
+        title: 'Community',
+        subtitle: 'A place for future posts, blogs, and tournament content.',
       },
       profile: {
         title: 'Profile',
         subtitle: 'Update your level, preferences, and personal information.',
-      },
-      settings: {
-        title: 'Settings',
-        subtitle: 'Configure notifications, language, and account settings.',
       },
     },
   },

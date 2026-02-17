@@ -17,7 +17,7 @@ export function NearbyGamesSection({ title, games, viewMoreLabel, onPressJoinGam
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <MaterialCommunityIcons name="fire" size={20} color={appTheme.colors.accent} />
+        <MaterialCommunityIcons name="fire" size={18} color={appTheme.colors.textMuted} />
         <Text style={styles.title}>{title}</Text>
       </View>
 
@@ -27,9 +27,11 @@ export function NearbyGamesSection({ title, games, viewMoreLabel, onPressJoinGam
 
       <Button
         label={viewMoreLabel}
-        variant="ghost"
+        variant="secondary"
         size="md"
-        leftIcon={<MaterialCommunityIcons name="chevron-down-circle-outline" size={18} color={appTheme.colors.accent} />}
+        leftIcon={
+          <MaterialCommunityIcons name="chevron-down-circle-outline" size={18} color={appTheme.colors.textSecondary} />
+        }
       />
     </View>
   );
@@ -45,9 +47,9 @@ const styles = StyleSheet.create({
     gap: appTheme.spacing.sm,
   },
   title: {
-    color: appTheme.colors.accentStrong,
-    fontSize: 22,
-    lineHeight: 30,
-    fontWeight: '700',
+    color: appTheme.colors.textPrimary,
+    fontSize: 20,
+    lineHeight: 28,
+    fontWeight: '600',
   },
 });

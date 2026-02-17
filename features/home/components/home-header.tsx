@@ -7,28 +7,25 @@ import { SectionCard } from '@/components/ui/section-card';
 
 type HomeHeaderProps = {
   locationLabel: string;
-  prompt: string;
 };
 
-export function HomeHeader({ locationLabel, prompt }: HomeHeaderProps) {
+export function HomeHeader({ locationLabel }: HomeHeaderProps) {
   return (
     <SectionCard style={styles.card}>
       <View style={styles.locationRow}>
         <View style={styles.locationLabelWrap}>
-          <MaterialCommunityIcons name="map-marker" size={18} color={appTheme.colors.accent} />
+          <MaterialCommunityIcons name="map-marker" size={18} color={appTheme.colors.textMuted} />
           <Text style={styles.locationLabel}>{locationLabel}</Text>
         </View>
         <MaterialCommunityIcons name="bell-outline" size={20} color={appTheme.colors.textSecondary} />
       </View>
-
-      <Text style={styles.prompt}>{prompt}</Text>
     </SectionCard>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    gap: appTheme.spacing.sm,
+    gap: 0,
     paddingTop: appTheme.spacing.md,
     paddingBottom: appTheme.spacing.md,
   },
@@ -43,17 +40,9 @@ const styles = StyleSheet.create({
     gap: appTheme.spacing.sm,
   },
   locationLabel: {
-    color: appTheme.colors.accentStrong,
+    color: appTheme.colors.textPrimary,
     fontSize: 17,
     fontWeight: '700',
     fontFamily: Fonts.rounded,
-  },
-  prompt: {
-    color: appTheme.colors.textPrimary,
-    fontSize: 24,
-    lineHeight: 31,
-    fontWeight: '700',
-    fontFamily: Fonts.rounded,
-    letterSpacing: 0.2,
   },
 });

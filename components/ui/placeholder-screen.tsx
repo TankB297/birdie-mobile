@@ -1,6 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { AppScreenHeader } from '@/components/shared/app-screen-header';
 import { SectionCard } from '@/components/ui/section-card';
 import { appTheme } from '@/constants/app-theme';
 
@@ -13,9 +14,10 @@ type PlaceholderScreenProps = {
 export function PlaceholderScreen({ iconName, title, subtitle }: PlaceholderScreenProps) {
   return (
     <View style={styles.container}>
+      <AppScreenHeader title={title} />
+
       <SectionCard style={styles.card}>
         <MaterialCommunityIcons name={iconName} size={34} color={appTheme.colors.accent} />
-        <Text style={styles.title}>{title}</Text>
         <Text style={styles.subtitle}>{subtitle}</Text>
       </SectionCard>
     </View>
@@ -26,18 +28,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: appTheme.colors.background,
-    padding: appTheme.spacing.lg,
-    justifyContent: 'center',
+    padding: appTheme.spacing.md,
+    gap: appTheme.spacing.md,
   },
   card: {
+    marginTop: appTheme.spacing.sm,
     alignItems: 'center',
     gap: appTheme.spacing.sm,
     paddingVertical: appTheme.spacing.xxl,
-  },
-  title: {
-    color: appTheme.colors.textPrimary,
-    fontSize: 22,
-    fontWeight: '700',
   },
   subtitle: {
     color: appTheme.colors.textSecondary,
